@@ -6,7 +6,7 @@ fname2 = replace(fname,"_MMStack_Pos0.ome","")
 waitForUser("REGISTRATION: select large square around neuron (just click 'OK' on the next 2 popups)");
 setTool("rectangle");
 run("Align slices in stack...");
-run("Enlarge...", "enlarge=60");
+run("Enlarge...", "enlarge=30");
 run("Crop");
 run("In [+]");
 run("In [+]");

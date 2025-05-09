@@ -33,7 +33,7 @@
 #' @export
 #' @examples data <- plotGCaMP_multi(N2, genotype = N2, cue = octanol)
 #'
-plotGCaMP_multi <- function(FileFilter,
+plotGCaMP_multi <- function(FileFilter = ".csv",
                             matlab = FALSE,
                             genotype = genotype,
                             cue = cue,
@@ -57,7 +57,7 @@ plotGCaMP_multi <- function(FileFilter,
   library(tidyverse)
   library(magrittr)
   library(patchwork)
-  library(scales)
+  #library(scales)
   FileFilter <- quo_name(enquo(FileFilter)) # make Filter usable inside other functions
   genotype <- quo_name(enquo(genotype))
   cue <- quo_name(enquo(cue))
@@ -274,7 +274,7 @@ if(exp.fit == FALSE) {
                          breaks = breaks,
                          labels = labels,
                          limits = limits,
-                         oob =squish) +
+                         oob = scales::squish) +
     theme_classic() +
     theme(axis.text = element_text(size = 16),
           axis.title = element_text(size = 18),
@@ -315,7 +315,7 @@ if(exp.fit == FALSE) {
                          breaks = breaks,
                          labels = labels,
                          limits = limits,
-                         oob =squish) +
+                         oob =scales::squish) +
     theme_classic() +
     theme(axis.text = element_text(size = 16),
           axis.title = element_text(size = 18),
