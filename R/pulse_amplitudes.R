@@ -77,8 +77,8 @@ pulse_amplitude <- function(stim_on = 30,
     stim_OFF_data <- data %>%
       filter(time > (stim_off + 0.5) & time < (stim_off + 10.5)) %>%
       # add back a column of pre-pulse mean values
-      full_join(prePulse) %>%
-      mutate(difference = delF - prePulse) %>%
+      full_join(preOFF) %>%
+      mutate(difference = delF - preOFF) %>%
       group_by(animal, animal_num) %>%
       summarize(time = time, difference = difference, maxAbs = max(abs(difference))) %>%
       filter(abs(difference) == maxAbs) %>%
