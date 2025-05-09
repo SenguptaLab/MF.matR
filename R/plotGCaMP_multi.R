@@ -274,7 +274,7 @@ if(exp.fit == FALSE) {
                          breaks = breaks,
                          labels = labels,
                          limits = limits,
-                         oob =squish) +
+                         oob = scales::squish) +
     theme_classic() +
     theme(axis.text = element_text(size = 16),
           axis.title = element_text(size = 18),
@@ -315,7 +315,7 @@ if(exp.fit == FALSE) {
                          breaks = breaks,
                          labels = labels,
                          limits = limits,
-                         oob =squish) +
+                         oob =scales::squish) +
     theme_classic() +
     theme(axis.text = element_text(size = 16),
           axis.title = element_text(size = 18),
