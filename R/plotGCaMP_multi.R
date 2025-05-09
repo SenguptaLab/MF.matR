@@ -33,7 +33,7 @@
 #' @export
 #' @examples data <- plotGCaMP_multi(N2, genotype = N2, cue = octanol)
 #'
-plotGCaMP_multi <- function(FileFilter,
+plotGCaMP_multi <- function(FileFilter = ".csv",
                             matlab = FALSE,
                             genotype = genotype,
                             cue = cue,
