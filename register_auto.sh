@@ -22,15 +22,17 @@ fi
 
 cp $DIR/registerGCaMP_auto_batch.ijm /Applications/Fiji.app/macros/ 
 
+prominence=$1
+
 register_auto() {
 	local filename=$1
-	/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx -batch registerGCaMP_auto_batch.ijm $filename
+	/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx -batch registerGCaMP_auto_batch.ijm $filename $prominence
 }
 
 export -f register_auto
 
 # Get files recursively from the current folder position:
-files=$(find ~+ -name "*MMStack_Pos0.ome*") 
+files=$(find ~+ -name "*ome.tif*") 
 #| { while read i; do dirname $i; done })
 
 #print names of files to be registered
@@ -38,7 +40,7 @@ echo $files
 
 # Do the registration
 for i in $files; do
-	echo -e "${RED} Registering file $i${NC}"
-	register_auto "$i"
+	echo -e "${RED} Registering file $i with prominence $prominence${NC}"
+	register_auto "$i,$prominence"
 done
 

@@ -9,7 +9,7 @@ open(filename);
 //open(filepath1);
 dir = File.getParent(filename);
 fname = File.nameWithoutExtension();
-fname2 = replace(fname,"_MMStack_Pos0.ome","");
+fname2 = replace(fname,".ome","");
 noise = 1000;
 run("Find Maxima...", "noise=" + noise + " exclude output=[Point Selection]");
 run("Enlarge...", "enlarge=40 pixel");
