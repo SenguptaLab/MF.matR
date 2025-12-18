@@ -12,8 +12,8 @@
 #' @examples data <- pulse_amplitudes()
 #'
 
-pulse_amplitude <- function(stim_on = 30,
-                            stim_off = 60,
+pulse_amplitude <- function(stim_on = 27.5,
+                            stim_off = 62.5,
                             method = "max") {
 
   message("Select a file in the folder you want to analyze")
@@ -26,22 +26,22 @@ pulse_amplitude <- function(stim_on = 30,
   if(method == "average") {
 
   (prePulse <- data %>%
-    filter(time > 27 & time < 29) %>%
+    filter(time > 24.5 & time < 26.5) %>%
     group_by(animal, animal_num) %>%
     summarize(prePulse = mean(delF)))
 
   (stim_ON <- data %>%
-    filter(time > 30.5 & time < 35) %>%
+    filter(time > 28 & time < 32.5) %>%
     group_by(animal, animal_num) %>%
     summarize(stim_ON = mean(delF)))
 
   (preOFF <- data %>%
-    filter(time > 57 & time < 59) %>%
+    filter(time > 59.5 & time < 61.5) %>%
     group_by(animal, animal_num) %>%
     summarize(preOFF = mean(delF)))
 
   (stim_OFF <- data %>%
-    filter(time > 60.5 & time < 65) %>%
+    filter(time > 63 & time < 67.5) %>%
     group_by(animal, animal_num) %>%
     summarize(stim_OFF = mean(delF)))
 
