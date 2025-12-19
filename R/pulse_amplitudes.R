@@ -64,7 +64,7 @@ pulse_amplitude <- function(stim_on = 27.5,
         summarize(preOFF = mean(delF)))
 
     stim_ON_data <- data %>%
-      filter(time > (stim_on + 0.5) & time < (stim_on + 10.5)) %>%
+      filter(time > (stim_on + 0.5) & time < (stim_on + 20.5)) %>%
       # add back a column of pre-pulse mean values
       full_join(prePulse) %>%
       mutate(difference = delF - prePulse) %>%
@@ -75,7 +75,7 @@ pulse_amplitude <- function(stim_on = 27.5,
       select(animal, animal_num, time_at_maxON = time, stim_ON_delF)
 
     stim_OFF_data <- data %>%
-      filter(time > (stim_off + 0.5) & time < (stim_off + 10.5)) %>%
+      filter(time > (stim_off + 0.5) & time < (stim_off + 20.5)) %>%
       # add back a column of pre-pulse mean values
       full_join(preOFF) %>%
       mutate(difference = delF - preOFF) %>%
